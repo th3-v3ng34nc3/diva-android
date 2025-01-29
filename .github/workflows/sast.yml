@@ -2,7 +2,7 @@ name: AccuKnox SAST Workflow
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   sast-scan:
