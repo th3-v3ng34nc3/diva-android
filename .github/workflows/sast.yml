@@ -1,0 +1,23 @@
+name: AccuKnox SAST Workflow
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sast-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run AccuKnox SAST
+        uses: accuknox/accuknox-sast@v1.0.0
+        with:
+          sonar_token: "squ_7b4b54b498aa3a0c97b79275ef1f3c18c737522f"
+          sonar_host_url: "https://sq.accuknox.com"
+          accuknox_endpoint: "https://cspm.demo.accuknox.com"
+          tenant_id: 167
+          accuknox_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQwNzM4MjY1LCJqdGkiOiI5MGI5ODQ0NzFiYjI0MzViODg3MmFjYjk3M2Y1ODQ3ZSIsImlzcyI6ImNzcG0uZGVtby5hY2N1a25veC5jb20ifQ.JET-44EsRrbYGRw8PU2_cpWKKDtgKrnRmSujlX0-pGKItD2GffrY9aaai3B-bsuPnvfgKGMf0S7sK8zZNKy579ghm-Sy2R60Xz59cDl8cOfRqgU-ul5DQU3AeLOGZh3UOau4_0xESEE6bCIVKtRZiSPKTrt__2OchK3k06ikIUMpmdH0MvvqntwQAfxAeFoPuMU7F-oMQj_KBAj__F8Xmood8-ALN6m9QxGP7ihjdrKeTmZE1jyPHq_swVb7Pn33gLYPpIWchJ-bJc5JboouvLAiIPF-DeBrA_dyM3NH3msWkIUhSPSmZdkjnbOwHfG5aQK0TtYX9kxwmEsLeZBUTw"
+          label: "hpecodescan"
+          sonar_project_key: "Hpe-Android-scan"
